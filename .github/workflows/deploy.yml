@@ -2,25 +2,34 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: "main" # Hoặc "master" tùy theo tên branch của đại ca
+    branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build_site:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -28,11 +37,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Copy index.html to Pages output
+        run: |
+          cp index.html dist/client/index.html
+          cp index.html dist/client/404.html
+
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Chỗ này cực quan trọng: Vite build ra đâu thì trỏ vào đó
-          # Dựa theo log nãy là dist/client hoặc chỉ là dist
           path: dist/client
 
       - name: Deploy
