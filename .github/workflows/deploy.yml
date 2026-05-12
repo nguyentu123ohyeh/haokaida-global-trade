@@ -33,7 +33,7 @@ jobs:
         with:
           # Chỗ này cực quan trọng: Vite build ra đâu thì trỏ vào đó
           # Dựa theo log nãy là dist/client hoặc chỉ là dist
-          path: dist 
+          path: dist/client
 
       - name: Deploy
         uses: actions/deploy-pages@v4
