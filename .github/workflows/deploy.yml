@@ -37,7 +37,7 @@ jobs:
       - name: Build static site
         run: npx vite build --config vite.static.config.ts
 
-      - name: Add SPA fallback
+      - name: Add SPA fallback and CNAME
         run: |
           cp dist-pages/index.html dist-pages/404.html
           echo "shenzhenhaokaidaintl.com" > dist-pages/CNAME
