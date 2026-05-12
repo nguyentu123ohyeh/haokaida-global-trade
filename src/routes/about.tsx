@@ -136,23 +136,6 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* TIMELINE */}
-      <section className="bg-surface py-20">
-        <div className="mx-auto max-w-4xl px-5 lg:px-8">
-          <div className="font-mono text-xs uppercase tracking-widest text-emerald">// {t(bi("Timeline", "发展历程"))}</div>
-          <h2 className="mt-3 font-display text-3xl font-bold">{t(bi("Company Timeline", "公司发展时间线"))}</h2>
-          <div className="mt-10 relative pl-8">
-            <div className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-emerald via-cyan to-transparent" />
-            <div className="relative">
-              <div className="absolute -left-[26px] top-1.5 h-3 w-3 rounded-full bg-emerald shadow-glow ring-4 ring-emerald/20" />
-              <div className="font-mono text-sm font-bold text-emerald">2022</div>
-              <div className="mt-1 font-display text-lg font-semibold">{t(bi("Company established", "公司成立"))}</div>
-              <div className="text-sm text-muted-foreground">21 / 04 / 2022 · Shenzhen, China · 中国深圳</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* VALUES */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
